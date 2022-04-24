@@ -1,0 +1,39 @@
+#wrapper{
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: calc(50% - 1920px/2);
+    top: calc(50% - 1080px/2);
+    background: #F6F6F6;
+}
+#title{
+    position: absolute;
+    width: 250px;
+    height: 116px;
+    left: 173px;
+    top: 96px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 116px;
+/* identical to box height */
+    color: #29CF6A;
+}
+#home{
+    position: absolute;
+    width: 88px;
+    height: 43px;
+    left: 1678px;
+    top: 165px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: right;
+
+    color: #BDBDBD;
+}

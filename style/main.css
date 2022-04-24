@@ -1,0 +1,107 @@
+
+#background{
+    position: absolute;
+    width: 1920px;
+    height: 743px;
+    left: calc(50% - 1920px/2);
+    top: calc(50% - 743px/2 + 168.5px);
+
+    background: #F7F7F7;
+    border-radius: 200px 200px 0px 0px;
+}
+
+#icon{
+    position: absolute;
+    width: 663px;
+    height: 415px;
+    left: calc(50% - 663px/2 - 0.5px);
+    top: calc(50% - 415px/2 - 179.5px);
+
+    background: url(/img/movekit.png);
+    
+}
+
+#move{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+
+    position: absolute;
+    width: 520px;
+    height: 132px;
+    left: 700px;
+    top: 620px;
+
+    background: #29CF6A;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+#movetext{
+    position: static;
+    width: 184px;
+    height: 72px;
+    left: 168px;
+    top: 30px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 72px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+#work{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+
+    position: absolute;
+    width: 520px;
+    height: 132px;
+    left: 700px;
+    top: 802px;
+
+    background: #FFFFFF;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+#worktext{
+    position: static;
+    width: 138px;
+    height: 72px;
+    left: 191px;
+    top: 30px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 72px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}

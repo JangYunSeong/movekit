@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style/main.css" rel="stylesheet" type="text/css" />
+    <link href="/style/movemodal.css" rel="stylesheet" type="text/css" />
+    <title>move kit</title>
+</head>
+<body>
+    <div id = "background"></div>
+    <div id = "icon"></div>
+    <button id = "move" type = 'button'>
+            <span id="movetext" >이사하기</span>
+    </button>
+    <button id = "work" type = 'button'>
+        <a href = "/view/worklist.html" style="text-decoration: none;">
+            <span id="worktext" >일하기</span>
+        </a>
+    </button>
+    <div class = "black_bg"></div>
+    <div class = "modal_wrap">
+        <div>
+            <h2 id = "title">이사 신청</h2>
+            <div class = "content">
+                <div class = "textlist">이름</div>
+                <div class = "frame">
+                    <input id = "name" class = "buttons" type="text" placeholder="이름을 입력하세요."/>
+                </div>
+                <div class = "textlist">전화번호</div>
+                <div class = "frame">
+                    <input id = "tel" class = "buttons" type ="tel" placeholder="전화번호를 입력하세요."/>
+                </div>
+                <div class = "textlist">지금 집 주소</div>
+                <div class = "frame">
+                    <input id = "curpos" class = "buttons" type="text" placeholder="현재 집주소를 입력하세요."/>
+                </div>
+                <div class = "textlist">이사갈 집 주소</div>
+                <div class = "frame">
+                    <input id = "movpos" class = "buttons" type="text" placeholder="이사갈 집 주소를 입력하세요."/>
+                </div>
+                <div class = "textlist">이사하는 날</div>
+                <div class = "frame">
+                    <input id = "day" class = "buttons" type="datetime-local" placeholder="이사하는 날짜를 선택해주세요."/>
+                </div>
+                <div class = "textlist">이삿짐의 양</div>
+                <div class = "frame">
+                    <input id = "goods" class = "buttons" type="text" placeholder="이삿짐의 양을 입력하세요."/>
+                </div>
+                <div class = "textlist">필요한 물품</div>
+                <div class = "frame">
+                    <input id = "buys" class = "buttons" type="text" placeholder="필요한 물품이 있다면 입력하세요. ex) 택배박스 2개, 테이프 3개"/>
+                </div>
+            </div>
+            <button id = "cancel" class = ".modal_close" type="button" onclick="goMain()"><span class = "submitText" style="color: #C1C1C1;">취소</span></button>
+            <button id = "submit" type="button"><span class = "submitText" style="color: #FFFFFF;" onclick="goMain()">등록</span></button>
+        </div>
+    </div>
+</body>
+<script>
+     window.onload = function() {
+ 
+        function onClick() {
+            document.querySelector('.modal_wrap').style.display ='block';
+            document.querySelector('.black_bg').style.display ='block';
+        }   
+        function offClick() {
+            document.querySelector('.modal_wrap').style.display ='none';
+            document.querySelector('.black_bg').style.display ='none';
+        }
+
+        document.getElementById('move').addEventListener('click', onClick);
+        document.querySelector('.modal_close').addEventListener('click', offClick);
+    };
+    const goMain=()=>{
+        location.href="/view/main.html";
+    }
+</script>
+</html>
