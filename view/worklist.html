@@ -10,9 +10,59 @@
 <body>
     <div id = "wrapper">
         <div id = "title">일하기</div>
-        <div id = "home" onClick = "">HOME</div>
+        <div id = "home" onClick = "goHome()">HOME</div>
+        <div id = "contents">
+            <div id = "content1" class = "list" onClick = "goWork(id)">
+                <div class = "listFrame">
+                    <div class ="textgroup">
+                        <div class = "from">FROM</div>
+                        <div class = "fromtext">대구광역시 북구 대학로 80 IT융복합공학관 B101</div>
+                    </div>
+                    <div class ="textgroup">
+                        <div class = "to">TO</div>
+                        <div class = "totext">대구광역시 북구 대학로 80 IT-4 101</div>
+                    </div>
+                    <div class ="textgroup">
+                        <div class = "when">WHEN</div>
+                        <div class = "whentext">2022.04.30. 15:00</div>
+                    </div>
+                </div>
+            </div>
+            <div id = "content2" class = "list" onClick = "goWork(id)">
+                <div class = "listFrame">
+                    <div class ="textgroup">
+                        <div class = "from">FROM</div>
+                        <div class = "fromtext">대구광역시 달서구 월서로 14 101/2005</div>
+                    </div>
+                    <div class ="textgroup">
+                        <div class = "to">TO</div>
+                        <div class = "totext">대구광역시 북구 대학로 80 IT융복합공학관 B101</div>
+                    </div>
+                    <div class ="textgroup">
+                        <div class = "when">WHEN</div>
+                        <div class = "whentext">2022.04.29. 11:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
+    const goWork=(id)=>{
+        const from = document.getElementById(id).getElementsByClassName("fromtext")[0].innerHTML;
+        const to = document.getElementById(id).getElementsByClassName("totext")[0].innerHTML;
+        const when = document.getElementById(id).getElementsByClassName("whentext")[0].innerHTML;
+        const userinfo = new Object();
+        userinfo.curpos = from;
+        userinfo.movpos = to;
+        userinfo.date = when;
+        const Tag = document.getElementById(id);
+        localStorage.setItem("user-info",JSON.stringify(userinfo))
+        location.href = "/view/workDetail.html";
+    }
+    const goHome=()=>{
+        location.href = "/view/main.html";
+    }
+    
 </script>
 </html>

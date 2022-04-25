@@ -1,0 +1,348 @@
+#infoFrame{
+    position: absolute;
+    width: 1612px;
+    height: 370px;
+    left: 52px;
+    top: 51px;
+    
+    background: #FFFFFF;
+    border-radius: 50px;
+}
+#listFrame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    
+    position: absolute;
+    width: 1531px;
+    height: 133px;
+    left: 48px;
+    top: 35px;
+}
+#from{
+    position: absolute;
+    width: 163.22px;
+    height: 43px;
+    left: calc(50% - 163.22px/2 - 683.89px);
+    top: calc(50% - 43px/2 - 45px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #29CF6A;
+}
+#to{
+    position: absolute;
+    width: 163.22px;
+    height: 43px;
+    left: calc(50% - 163.22px/2 - 683.89px);
+    top: calc(50% - 43px/2);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #FFA1BC;
+}
+#when{
+    position: absolute;
+    width: 163px;
+    height: 43px;
+    left: calc(50% - 163px/2 - 684px);
+    top: calc(50% - 43px/2 + 45px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#fromtext{
+    position: absolute;
+    width: 1320.63px;
+    height: 43px;
+    left: calc(50% - 1320.63px/2 + 68.04px);
+    top: calc(50% - 43px/2 - 45px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#totext{
+    position: absolute;
+    width: 1320.63px;
+    height: 43px;
+    left: calc(50% - 1320.63px/2 + 68.04px);
+    top: calc(50% - 43px/2);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#whentext{
+    position: absolute;
+    width: 1358px;
+    height: 43px;
+    left: calc(50% - 1358px/2 + 86.5px);
+    top: calc(50% - 43px/2 + 45px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#upperline{
+    position: absolute;
+    width: 1800px;
+    height: 0px;
+    left: 0px;
+    top: 204px;
+
+    border: 1px solid #E5E5E5;
+}
+#distance{
+    position: absolute;
+    width: 163px;
+    height: 43px;
+    left: 48px;
+    top: 238px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#distext{
+    position: absolute;
+    width: 1358px;
+    height: 43px;
+    left: 221px;
+    top: 238px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#goods{
+    position: absolute;
+    width: 163px;
+    height: 43px;
+    left: 48px;
+    top: 291px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+    
+}
+#goodstext{
+    position: absolute;
+    width: 1358px;
+    height: 43px;
+    left: 221px;
+    top: 291px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
+#lowerline{
+    position: absolute;
+    width: 1800px;
+    height: 0px;
+    left: 0px;
+    top: 596px;
+
+    border: 1px solid #E5E5E5;
+}
+#costtext{
+    position: absolute;
+    width: 240px;
+    height: 43px;
+    left: 1400px;
+    top: 404px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: right;
+    
+    color: #000000;
+}
+#cost{
+    position: absolute;
+    width: 514px;
+    height: 116px;
+    left: 1133px;
+    top: 439px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 116px;
+    /* identical to box height */
+    
+    text-align: right;
+    
+    color: #29CF6A;
+}
+#nameframe{
+    position: absolute;
+    width: 656px;
+    height: 90px;
+    left: 184px;
+    top: 661px;
+}
+#telframe{
+    position: absolute;
+    width: 656px;
+    height: 90px;
+    left: 875px;
+    top: 661px;
+}
+#inputtext{
+    position: absolute;
+    left: 0%;
+    right: 75.91%;
+    top: 18.89%;
+    bottom: 26.67%;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 51px;
+    text-align: right;
+    
+    color: #000000;
+}
+#inputframe{
+    position: absolute;
+    width: 465px;
+    height: 90px;
+    left: 191px;
+    top: 0px;
+    
+    background: #F7F7F7;
+    border-radius: 22.6046px;
+}
+#input{
+    position: absolute;
+    width: 412px;
+    height: 36px;
+    left: 25px;
+    top: 23px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 36px;
+    border-color: transparent;
+    background-color: #F7F7F7;
+    color : #000000;
+}
+#input:placeholder{
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+}
+#input:focus{ 
+    outline:none;
+}
+#cancel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+
+    position: absolute;
+    width: 174px;
+    height: 101px;
+    left: 1276px;
+    top: 780px;
+
+    background: #E5E5E5;
+    border: 5px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
+#buttontext{
+    position: static;
+    width: 80px;
+    height: 58px;
+    left: 44px;
+    top: 21.5px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    /* identical to box height */
+    
+    text-align: center;    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+#submit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+    
+    position: absolute;
+    width: 174px;
+    height: 101px;
+    left: 1473px;
+    top: 780px;
+    
+    background: #29CF6A;
+    border: 5px solid #000000;
+    box-sizing: border-box;
+    border-radius: 50px;    
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/style/workDetail.css" rel="stylesheet" type="text/css" />
+    <title>workModal</title>
+</head>
+<body>
+    <div id="infoFrame">
+        <div id="listFrame">
+            <div id = "from">FROM</div>
+            <div id = "fromtext"></div>
+            <div id ="to">TO</div>
+            <div id = "totext"></div>
+            <div id = "when">WHEN</div>
+            <div id = "whentext"></div>
+        </div>
+        <div id = "upperline"></div>
+        <div id = "distance">거리</div>
+        <div id = "distext">508m</div>
+        <div id = "goods">이사 규모</div>
+        <div id = "goodstext">우체국박스 6호 5개</div>
+        <div id = "costtext">계산된 인건비는</div>
+        <div id = "cost">30,000원</div>
+        <div id = "lowerline"></div>
+        <div id="nameframe">
+            <div id="inputtext">이름</div>
+            <div id="inputframe">
+                <input type = "text" id = "input"/>
+            </div>
+        </div>
+        <div id="telframe">
+            <div id="inputtext">전화번호</div>
+            <div id="inputframe">
+                <input type = "tel" id = "input"/>
+            </div>
+        </div>
+        <button type = "button" id="cancel" onClick = "goList()"><div id = "buttontext" style="color: #C6C6C6;">취소</div></button>
+        <button type = "button" id="submit" onClick = "goResult()"><div id = "buttontext" style="color: #FFFFFF;">신청</div></button>
+    </div>
+</body>
+<script>
+    const {curpos, movpos,date} = JSON.parse(localStorage.getItem("user-info"));
+    localStorage.removeItem("user-info");
+    console.log(curpos,movpos,date);
+    const cur = document.getElementById("fromtext");
+    cur.innerHTML = curpos;
+    const mov = document.getElementById("totext");
+    mov.innerHTML = movpos;
+    const when = document.getElementById("whentext");
+    when.innerHTML = date;
+    const goList = () =>{
+        location.href = "/view/worklist.html";
+    }
+    const goResult = () =>{
+        const userinfo = new Object();
+        userinfo.curpos = curpos;
+        userinfo.movpos = movpos;
+        userinfo.date = date;
+        userinfo.name = "장윤성";
+        userinfo.tel = "01043730924";
+        localStorage.setItem("user-info",JSON.stringify(userinfo))
+        location.href = "/view/workResult.html";
+    }
+</script>
+</html>

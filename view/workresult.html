@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style/workResult.css" rel="stylesheet" type="text/css" />
     <title>Result</title>
 </head>
 <body>
-    
+    <div id ="wrapper">
+        <div id = "icon"></div>
+        <div id = "matchtext">매칭이 완료되었습니다.</div>
+        <div id="personbox">
+            <div id = "nametext"></div>
+            <div id = "teltext"></div>
+        </div>
+        <div id="datetext"></div>
+    </div>
 </body>
 <script>
+    const {curpos, movpos,date,name,tel} = JSON.parse(localStorage.getItem("user-info"));
+    localStorage.removeItem("user-info");
+    const textname = document.getElementById('nametext')
+    textname.innerHTML = "의뢰인 : ";
+    const texttel = document.getElementById('teltext');
+    texttel.innerHTML = "전화번호 : ";
+    const textdate = document.getElementById('datetext');
+    textdate.innerHTML = date;
 </script>
 </html>

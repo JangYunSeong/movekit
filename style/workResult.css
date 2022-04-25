@@ -1,0 +1,108 @@
+#wrapper{
+    position: relative;
+    width: 721px;
+    height: 1040px;
+    background: #FFFFFF;
+
+    border-radius: 35px;
+}
+#icon{
+    position: absolute;
+    width: 148px;
+    height: 148px;
+    left: calc(50% - 160px/2 + 0.5px);
+    top: calc(50% - 160px/2 - 253px);
+    background: url(/img/Check.png);
+}
+#matchtext{
+    position: absolute;
+    width: 574px;
+    height: 58px;
+    left: calc(50% - 574px/2 + 1px);
+    top: calc(50% - 58px/2 - 116px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #000000;
+}
+#personbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 34px;
+    
+    position: absolute;
+    width: 574px;
+    height: 168px;
+    left: calc(50% - 574px/2 + 0.5px);
+    top: calc(50% - 168px/2 + 101px);
+    
+    background: #F6F6F6;
+    border-radius: 20px;
+}
+#nametext{
+    position: absolute;
+    width: 188px;
+    height: 43px;
+    left: 34px;
+    top: 34px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+    
+    color: #000000;
+    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 14px 0px;
+}
+#teltext{
+    position: absolute;
+    width: 323px;
+    height: 43px;
+    left: 34px;
+    top: 91px;  
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+    color: #000000; 
+    /* Inside auto layout */ 
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 14px 0px;
+}
+#datetext{
+    position: absolute;
+    width: 517px;
+    height: 86px;
+    left: calc(50% - 517px/2 + 1px);
+    top: calc(50% - 86px/2 + 290px);
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 43px;
+    text-align: center;
+    
+    color: #000000;
+}
