@@ -22,9 +22,9 @@
     const {curpos, movpos,date,name,tel} = JSON.parse(localStorage.getItem("user-info"));
     localStorage.removeItem("user-info");
     const textname = document.getElementById('nametext')
-    textname.innerHTML = "의뢰인 : ";
+    textname.innerHTML = "의뢰인 : "+name;
     const texttel = document.getElementById('teltext');
-    texttel.innerHTML = "전화번호 : ";
+    texttel.innerHTML = "전화번호 : "+tel;
     const textdate = document.getElementById('datetext');
     textdate.innerHTML = date;
 </script>

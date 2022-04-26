@@ -49,7 +49,7 @@
 }
 #nametext{
     position: absolute;
-    width: 188px;
+    width: 220px;
     height: 43px;
     left: 34px;
     top: 34px;
@@ -58,8 +58,8 @@
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
-    line-height: 43px;
-    text-align: center;
+    line-height: 70px;
+    text-align: left;
     
     color: #000000;
     
@@ -73,7 +73,7 @@
 }
 #teltext{
     position: absolute;
-    width: 323px;
+    width: 340px;
     height: 43px;
     left: 34px;
     top: 91px;  
@@ -81,8 +81,8 @@
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
-    line-height: 43px;
-    text-align: center;
+    line-height: 70px;
+    text-align: left;
     color: #000000; 
     /* Inside auto layout */ 
     flex: none;
@@ -101,7 +101,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
-    line-height: 43px;
+    line-height: 70px;
     text-align: center;
     
     color: #000000;
