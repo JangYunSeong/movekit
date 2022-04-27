@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'Noto Sans KR';
+    src : url('/font/NotoSansKR-Medium.ttf') format('truetype');
+}
 .modal_wrap{
     display: none;
     width: 526px;

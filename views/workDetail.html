@@ -50,7 +50,7 @@
     const when = document.getElementById("whentext");
     when.innerHTML = date;
     const goList = () =>{
-        location.href = "/view/worklist.html";
+        location.href = "/views/worklist.html";
     }
     const goResult = () =>{
         const userinfo = new Object();
@@ -60,7 +60,7 @@
         userinfo.name = "장윤성";
         userinfo.tel = "01043730924";
         localStorage.setItem("user-info",JSON.stringify(userinfo))
-        location.href = "/view/workResult.html";
+        location.href = "/views/workResult.html";
     }
 </script>
 </html>

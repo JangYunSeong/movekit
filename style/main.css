@@ -1,4 +1,7 @@
-
+@font-face{
+    font-family: 'Noto Sans KR';
+    src : url('/font/NotoSansKR-Medium.ttf') format('truetype');
+}
 #background{
     position: absolute;
     width: 1920px;

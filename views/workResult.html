@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style/workResult.css" rel="stylesheet" type="text/css" />
+    <title>Result</title>
+</head>
+<body>
+    <div id ="wrapper">
+        <div id = "icon"></div>
+        <div id = "matchtext">매칭이 완료되었습니다.</div>
+        <div id="personbox">
+            <div id = "nametext">의뢰인 : </div>
+            <div id = "name"></div>
+            <div id = "teltext">전화번호 : </div>
+            <div id = "tel"></div>
+        </div>
+        <div id="datetext">이사일은 <span id = "dates" style="color: #29CF6A; font-weight: 600"></span> 입니다.<br/> 잊지 말아주세요! :)</div>
+        <button type = "button" id="menu" onClick = "goMenu()"><div id = "menutext" style="color: #FFFFFF;">메뉴로 돌아가기</div></button>
+    </div>
+</body>
+<script>
+    const {curpos, movpos,date,name,tel} = JSON.parse(localStorage.getItem("user-info"));
+    localStorage.removeItem("user-info");
+    const textname = document.getElementById('name')
+    textname.innerHTML = name;
+    const texttel = document.getElementById('tel');
+    texttel.innerHTML = tel;
+    const datetext = document.getElementById('dates');
+    datetext.innerHTML = date;
+    const goMenu = () =>{
+        location.href = "worklist.html";
+    }
+</script>
+</html>
