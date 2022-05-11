@@ -48,6 +48,22 @@
     </div>
 </body>
 <script>
+    const request = new XMLHttpRequest();
+        request.onreadystatechange = function(){
+            if(request.status == 200){
+                console.log(request.responceText);
+            }
+        }
+    request.open('GET','/worklist',true);
+    request.responseType='json';
+    request.setRequestHeader('Content-Type','application/json');
+    request.onload = ()=>{
+        var data = request.response;
+        for(var i=0; i<data.length; i++){
+            console.log(data[i].name);
+        }
+    };
+    request.send();
     const goWork=(id)=>{
         const from = document.getElementById(id).getElementsByClassName("fromtext")[0].innerHTML;
         const to = document.getElementById(id).getElementsByClassName("totext")[0].innerHTML;
@@ -58,10 +74,10 @@
         userinfo.date = when;
         const Tag = document.getElementById(id);
         localStorage.setItem("user-info",JSON.stringify(userinfo))
-        location.href = "/views/workDetail.html";
+        location.href = "./workDetail.html";
     }
     const goHome=()=>{
-        location.href = "/views/main.html";
+        location.href = "./main.html";
     }
     
 </script>

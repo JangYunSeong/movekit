@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +14,8 @@
     <button id = "move" type = 'button'>
             <span id="movetext" >이사하기</span>
     </button>
-    <button id = "work" type = 'button'>
-        <a href = "/views/worklist.html" style="text-decoration: none;">
+    <button id = "work" type = 'button' onClick = "goWork()">
             <span id="worktext" >일하기</span>
-        </a>
     </button>
     <div class = "black_bg"></div>
     <div class = "modal_wrap">
@@ -48,19 +46,33 @@
                 <div class = "frame">
                     <input id = "goods" class = "buttons" type="text" placeholder="이삿짐의 양을 입력하세요."/>
                 </div>
-                <div class = "textlist">필요한 물품</div>
+                <div class = "textlist">필요한 인원수</div>
                 <div class = "frame">
-                    <input id = "buys" class = "buttons" type="text" placeholder="필요한 물품이 있다면 입력하세요. ex) 택배박스 2개, 테이프 3개"/>
+                    <input id = "people" class = "buttons" type="number" placeholder="이사에 필요한 고용 인원수를 입력하세요"/>
                 </div>
             </div>
-            <button id = "cancel" class = ".modal_close" type="button" onclick="goMain()"><span class = "submitText" style="color: #C1C1C1;">취소</span></button>
+            <button id = "cancel" class = ".modal_close" type="button" onclick="goCancel()"><span class = "submitText" style="color: #C1C1C1;">취소</span></button>
             <button id = "submit" type="button"><span class = "submitText" style="color: #FFFFFF;" onclick="goMain()">등록</span></button>
         </div>
     </div>
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-     window.onload = function() {
- 
+    window.onload = function() {
+        document.getElementById('curpos').addEventListener("click",function(){
+            new daum.Postcode({
+                oncomplete:function(data){
+                    document.getElementById("curpos").value = data.address; // 주소 넣기
+                }
+            }).open();
+        });
+        document.getElementById('movpos').addEventListener("click",function(){
+            new daum.Postcode({
+                oncomplete:function(data){
+                    document.getElementById("movpos").value = data.address; // 주소 넣기
+                }
+            }).open();
+        });
         function onClick() {
             document.querySelector('.modal_wrap').style.display ='block';
             document.querySelector('.black_bg').style.display ='block';
@@ -69,12 +81,41 @@
             document.querySelector('.modal_wrap').style.display ='none';
             document.querySelector('.black_bg').style.display ='none';
         }
-
+        
         document.getElementById('move').addEventListener('click', onClick);
         document.querySelector('.modal_close').addEventListener('click', offClick);
     };
     const goMain=()=>{
-        location.href="/";
+        var orderInfo = new Object();
+        orderInfo = {
+            name : document.getElementById('name').value,
+            tel : document.getElementById('tel').value,
+            curpos : document.getElementById('curpos').value,
+            movpos : document.getElementById('movpos').value,
+            day : document.getElementById('day').value,
+            goods : document.getElementById('goods').value,
+            people : document.getElementById('people').value
+        }
+        const sending = JSON.stringify(orderInfo)
+        console.log(sending);
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function(){
+            if(request.status == 200){
+                console.log(request.responceText);
+            }
+        }
+        request.open('POST','/',true);
+        request.setRequestHeader('Content-Type','application/json');
+        request.send(sending);
+        document.querySelector('.modal_wrap').style.display ='none';
+        document.querySelector('.black_bg').style.display ='none';
+    }
+    const goCancel = ()=>{
+        document.querySelector('.modal_wrap').style.display ='none';
+        document.querySelector('.black_bg').style.display ='none';
+    }
+    const goWork=()=>{
+        location.href="./views/worklist.html";
     }
 </script>
 </html>
