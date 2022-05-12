@@ -1,5 +1,6 @@
-# movekit
-단거리 이사를 위한 서비스
+### movekit
+![KakaoTalk_20220414_202931055](https://user-images.githubusercontent.com/46878756/168100576-36fb11c5-218f-4c02-85b9-54859907bea2.png)
+
 ### 아이디어 제목 : 택배 키트
 
 ### 아이디어 내용 : **단거리 이사에 필요한 물품** 배송
