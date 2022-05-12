@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { stringify } = require('nodemon/lib/utils');
 const schema = mongoose.Schema;
 
 const workSchema = new schema({
@@ -7,11 +6,14 @@ const workSchema = new schema({
         type:String,
         trim:true,
         require:true,
+        minlength:3,
     },
     tel : {
         type:String,
         trim:true,
         require:true,
+        minlength:11,
+        maxlength:11,
     },
 },{timestamps:true});
 

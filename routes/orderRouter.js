@@ -72,6 +72,42 @@ orderRouter.route('/worklist/:orderId')
         res.json(order);
     },(err)=>next(err));
 });
-
+orderRouter.route('/worklist/:orderId/peoples')
+.get((req,res,next)=>{
+    Order.findById(req.params.orderId)
+    .then((order)=>{
+        if(order !=null){
+            res.statusCode=200;
+            res.setHeader('Content-Type','application/json');
+            res.json(order.list);
+        }
+        else{
+            err = new Error('Order ' + req.params.orderId + ' not found');
+            err.statusCode=404;
+            return next(err);
+        }
+    },(err)=>next(err))
+    .catch((err)=>next(err));
+})
+.post((req,res,next)=>{
+    Order.findById(req.params.orderId)
+    .then((order)=>{
+        if(order!=null){
+            order.list.push(req.body);
+            order.save()
+            .then((order)=>{
+                res.statusCode=200;
+                res.setHeader('Content-Type','application/json');
+                res.json(order);
+            },(err)=>next(err))
+        }
+        else{
+            err = new Error('Order ' + req.params.orderId + ' not found');
+            err.statusCode=404;
+            return next(err);
+        }
+    },(err)=>next(err))
+    .catch((err)=>next(err));
+});
 
 module.exports = orderRouter;

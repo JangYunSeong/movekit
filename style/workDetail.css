@@ -242,7 +242,7 @@
     left: 875px;
     top: 661px;
 }
-#inputtext{
+.inputtext{
     position: absolute;
     left: 0%;
     right: 75.91%;
@@ -258,7 +258,7 @@
     
     color: #000000;
 }
-#inputframe{
+.inputframe{
     position: absolute;
     width: 465px;
     height: 90px;
@@ -268,7 +268,7 @@
     background: #F7F7F7;
     border-radius: 22.6046px;
 }
-#input{
+.input{
     position: absolute;
     width: 412px;
     height: 36px;
@@ -284,11 +284,11 @@
     background-color: #F7F7F7;
     color : #000000;
 }
-#input:placeholder{
+.input:placeholder{
     font-family: 'Noto Sans KR';
     font-weight: 600;
 }
-#input:focus{ 
+.input:focus{ 
     outline:none;
 }
 #cancel{

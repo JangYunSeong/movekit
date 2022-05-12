@@ -24,15 +24,15 @@
         <div id = "cost">30,000원</div>
         <div id = "lowerline"></div>
         <div id="nameframe">
-            <div id="inputtext">이름</div>
-            <div id="inputframe">
-                <input type = "text" id = "input"/>
+            <div class="inputtext">이름</div>
+            <div class="inputframe">
+                <input type = "text" id = "input_name" class = 'input'/>
             </div>
         </div>
         <div id="telframe">
-            <div id="inputtext">전화번호</div>
-            <div id="inputframe">
-                <input type = "tel" id = "input"/>
+            <div class="inputtext">전화번호</div>
+            <div class="inputframe">
+                <input type = "tel" id = "input_tel" class = 'input'/>
             </div>
         </div>
         <button type = "button" id="cancel" onClick = "goList()"><div id = "buttontext" style="color: #C6C6C6;">취소</div></button>
@@ -40,9 +40,10 @@
     </div>
 </body>
 <script>
-    const {_id,name,tel,curpos, movpos,day,goods} = JSON.parse(localStorage.getItem("user-info"));
+    const data = localStorage.getItem("user-info");
+    const {_id,name,tel,curpos, movpos,day,goods,people,list} = JSON.parse(localStorage.getItem("user-info"));
     localStorage.removeItem("user-info");
-    console.log(_id,name,tel,curpos, movpos,day,goods);
+    console.log(data);
     const cur = document.getElementById("fromtext");
     cur.innerHTML = curpos;
     const mov = document.getElementById("totext");
@@ -55,12 +56,33 @@
         location.href = "/views/worklist.html";
     }
     const goResult = () =>{
+        const id = _id;
+        var changePeople = people-1;
+        var changeList = list;
         const userinfo = new Object();
-        userinfo.curpos = curpos;
-        userinfo.movpos = movpos;
         userinfo.day = day;
-        userinfo.name = "장윤성";
-        userinfo.tel = "01043730924";
+        userinfo.name = name;
+        userinfo.tel = tel;
+        console.log(changeList[0]);
+        const sending = new Object();
+        sending.people = changePeople;
+        const peopleList = new Object();
+        peopleList.name = document.getElementById('input_name').value;
+        peopleList.tel = document.getElementById('input_tel').value;
+        const request = new XMLHttpRequest();
+        request.onreadystatechange = function(){
+            if(request.status == 200){
+                console.log(request.responceText);
+            }
+        }
+        const sendingJson = JSON.stringify(sending);
+        const peopleJson = JSON.stringify(peopleList);
+        request.open('PUT','/worklist/'+id,true);
+        request.setRequestHeader('Content-Type','application/json');
+        request.send(sendingJson);
+        request.open('POST','/worklist/'+id+'/peoples',true);
+        request.setRequestHeader('Content-Type','application/json');
+        request.send(peopleJson);
         localStorage.setItem("user-info",JSON.stringify(userinfo))
         location.href = "./workResult.html";
     }

@@ -97,7 +97,6 @@
             people : document.getElementById('people').value
         }
         const sending = JSON.stringify(orderInfo)
-        console.log(sending);
         const request = new XMLHttpRequest();
         request.onreadystatechange = function(){
             if(request.status == 200){

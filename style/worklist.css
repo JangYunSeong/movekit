@@ -40,6 +40,9 @@
 
     color: #BDBDBD;
 }
+#home:hover{
+    cursor: pointer;
+}
 #contents{
     display: flex;
     flex-direction: column;
