@@ -53,6 +53,25 @@ orderRouter.route('/worklist')
     },(err)=>next(err))
     .catch((err)=>next(err));
 });
+orderRouter.route('/worklist/:orderId')
+.get((req,res,next)=>{
+    Order.findById(req.params.orderId)
+    .then((order)=>{
+        res.statusCode = 200;
+        res.setHeader('Content-Type','application/json');
+        res.json(order);
+    },(err)=>next(err))
+})
+.put((req,res,next)=>{
+    Order.findByIdAndUpdate(req.params.orderId,{
+        $set : req.body
+    },{new:true})
+    .then((order)=>{
+        res.statusCode=200;
+        res.setHeader('Content-Type','application/json');
+        res.json(order);
+    },(err)=>next(err));
+});
 
 
 module.exports = orderRouter;
