@@ -1,14 +1,12 @@
 const express = require("express");
 const app = express();
-// const mongoose = require("mongoose"); // mongoose
-// require("dotenv").config();
-// const cors = require("cors");
 const connect = require('./model/index');
 
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.static(__dirname));
+
 
 const orderRouter = require('./routes/orderRouter');
 app.use('/',orderRouter);

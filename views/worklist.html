@@ -5,46 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/style/worklist.css" rel="stylesheet" type="text/css" />
+    <script src="../jquery-3.6.0.min.js"></script>
     <title>moveList</title>
 </head>
 <body>
     <div id = "wrapper">
         <div id = "title">일하기</div>
         <div id = "home" onClick = "goHome()">HOME</div>
-        <div id = "contents">
-            <div id = "content1" class = "list" onClick = "goWork(id)">
-                <div class = "listFrame">
-                    <div class ="textgroup">
-                        <div class = "from">FROM</div>
-                        <div class = "fromtext">대구광역시 북구 대학로 80 IT융복합공학관 B101</div>
-                    </div>
-                    <div class ="textgroup">
-                        <div class = "to">TO</div>
-                        <div class = "totext">대구광역시 북구 대학로 80 IT-4 101</div>
-                    </div>
-                    <div class ="textgroup">
-                        <div class = "when">WHEN</div>
-                        <div class = "whentext">2022.04.30. 15:00</div>
-                    </div>
-                </div>
-            </div>
-            <div id = "content2" class = "list" onClick = "goWork(id)">
-                <div class = "listFrame">
-                    <div class ="textgroup">
-                        <div class = "from">FROM</div>
-                        <div class = "fromtext">대구광역시 달서구 월서로 14 101/2005</div>
-                    </div>
-                    <div class ="textgroup">
-                        <div class = "to">TO</div>
-                        <div class = "totext">대구광역시 북구 대학로 80 IT융복합공학관 B101</div>
-                    </div>
-                    <div class ="textgroup">
-                        <div class = "when">WHEN</div>
-                        <div class = "whentext">2022.04.29. 11:00</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id = "contents"></div>
     </div>
 </body>
 <script>
@@ -59,26 +27,46 @@
     request.setRequestHeader('Content-Type','application/json');
     request.onload = ()=>{
         var data = request.response;
+        var obj = document.getElementById('contents');
+        const opt = ['from','to','when'];
+        const opttext = ['fromtext','totext','whentext'];
         for(var i=0; i<data.length; i++){
-            console.log(data[i].name);
+            const name = i;
+            var temp = [data[i].curpos,data[i].movpos,data[i].day]
+            var newDiv1 = document.createElement("div");
+            newDiv1.setAttribute("id",name);
+            newDiv1.setAttribute("class",'list');
+            var newDiv2 = document.createElement("div");
+            newDiv2.setAttribute('class','listFrame');
+            for(var k = 0; k<3; k++){
+                var newDiv3 = document.createElement("div");
+                newDiv3.setAttribute("class", "textgroup");
+                var option = document.createElement("div");
+                option.setAttribute("class",opt[k]);
+                option.innerHTML = opt[k].toUpperCase();
+                var optiontext = document.createElement("div");
+                optiontext.setAttribute("class",opttext[k]);
+                optiontext.innerHTML = temp[k];
+                newDiv3.appendChild(option);
+                newDiv3.appendChild(optiontext);
+                newDiv2.appendChild(newDiv3);
+            }
+            newDiv1.appendChild(newDiv2);
+            $(document).on('click','#'+name,function(){
+                console.log(name);
+                goWork(name);
+            });
+            obj.appendChild(newDiv1);
         }
     };
     request.send();
     const goWork=(id)=>{
-        const from = document.getElementById(id).getElementsByClassName("fromtext")[0].innerHTML;
-        const to = document.getElementById(id).getElementsByClassName("totext")[0].innerHTML;
-        const when = document.getElementById(id).getElementsByClassName("whentext")[0].innerHTML;
-        const userinfo = new Object();
-        userinfo.curpos = from;
-        userinfo.movpos = to;
-        userinfo.date = when;
-        const Tag = document.getElementById(id);
-        localStorage.setItem("user-info",JSON.stringify(userinfo))
+        const sendData = request.response[id];
+        localStorage.setItem("user-info",JSON.stringify(sendData));
         location.href = "./workDetail.html";
     }
     const goHome=()=>{
-        location.href = "./main.html";
+        location.href = "/";
     }
-    
 </script>
 </html>

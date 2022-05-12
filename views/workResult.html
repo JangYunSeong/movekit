@@ -22,14 +22,14 @@
     </div>
 </body>
 <script>
-    const {curpos, movpos,date,name,tel} = JSON.parse(localStorage.getItem("user-info"));
+    const {curpos, movpos,day,name,tel} = JSON.parse(localStorage.getItem("user-info"));
     localStorage.removeItem("user-info");
     const textname = document.getElementById('name')
     textname.innerHTML = name;
     const texttel = document.getElementById('tel');
     texttel.innerHTML = tel;
     const datetext = document.getElementById('dates');
-    datetext.innerHTML = date;
+    datetext.innerHTML = day;
     const goMenu = () =>{
         location.href = "./worklist.html";
     }
