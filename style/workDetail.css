@@ -185,6 +185,37 @@
     
     color: #000000;
 }
+#people{
+    position: absolute;
+    width: 163px;
+    height: 43px;
+    left: 48px;
+    top: 350px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+    
+}
+#peopletext{
+    position: absolute;
+    width: 100px;
+    height: 43px;
+    left: 221px;
+    top: 350px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 43px;
+    
+    color: #000000;
+}
 #lowerline{
     position: absolute;
     width: 1800px;

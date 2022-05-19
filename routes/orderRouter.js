@@ -71,7 +71,16 @@ orderRouter.route('/worklist/:orderId')
         res.setHeader('Content-Type','application/json');
         res.json(order);
     },(err)=>next(err));
+})
+.delete((req,res,next)=>{
+    Order.findByIdAndRemove(req.params.orderId)
+    .then((resp)=>{
+        res.statusCode=200;
+        res.setHeader('Content-Type','application/json');
+        res.json(resp);
+    },(err)=>next(err));
 });
+
 orderRouter.route('/worklist/:orderId/peoples')
 .get((req,res,next)=>{
     Order.findById(req.params.orderId)
