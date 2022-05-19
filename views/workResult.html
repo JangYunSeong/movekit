@@ -29,7 +29,23 @@
     const texttel = document.getElementById('tel');
     texttel.innerHTML = tel;
     const datetext = document.getElementById('dates');
-    datetext.innerHTML = day;
+    const date = day.toString();
+    const year = date.substring(0,4);
+    const month = date.substring(5,7);
+    let hour = parseInt(date.substring(11,13))+9;
+    const minute = date.substring(14,16);
+    let days =parseInt(date.substring(8,10));
+        if (hour >= 24){
+            hour -= 24
+            hour = '0'+hour.toString();
+            if (days < 9){
+                days = '0'+(days+1).toString();
+            }
+            else{
+                days = (days+1).toString();
+            }
+        }
+    datetext.innerHTML = year + "."+month+"."+days + " "+hour + ':'+minute;
     const goMenu = () =>{
         location.href = "./worklist.html";
     }

@@ -47,7 +47,28 @@
                     option.innerHTML = opt[k].toUpperCase();
                     var optiontext = document.createElement("div");
                     optiontext.setAttribute("class",opttext[k]);
-                    optiontext.innerHTML = temp[k];
+                    if (k==2){
+                        const date = temp[k].toString();
+                        const year = date.substring(0,4);
+                        const month = date.substring(5,7);
+                        let hour = parseInt(date.substring(11,13))+9;
+                        const minute = date.substring(14,16);
+                        let day =parseInt(date.substring(8,10));
+                        if (hour >= 24){
+                            hour -= 24
+                            hour = '0'+hour.toString();
+                            if (day < 9){
+                                day = '0'+(day+1).toString();
+                            }
+                            else{
+                                day = (day+1).toString();
+                            }
+                        }
+                        optiontext.innerHTML = year + "."+month+"."+day + " "+hour + ':'+minute;
+                    }
+                    else{
+                        optiontext.innerHTML = temp[k];
+                    }
                     newDiv3.appendChild(option);
                     newDiv3.appendChild(optiontext);
                     newDiv2.appendChild(newDiv3);
