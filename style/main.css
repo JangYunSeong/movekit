@@ -5,7 +5,7 @@
 #background{
     position: absolute;
     width: 1920px;
-    height: 743px;
+    height: 100%;
     left: calc(50% - 1920px/2);
     top: calc(50% - 743px/2 + 168.5px);
 
@@ -31,11 +31,11 @@
     align-items: center;
     padding: 30px 50px;
 
-    position: relative;
+    position: absolute;
     width: 520px;
     height: 132px;
-    left: 700px;
-    top: 620px;
+    left: 37%;
+    top: 65%;
 
     background: #29CF6A;
     border: 5px solid #000000;
@@ -76,8 +76,8 @@
     position: absolute;
     width: 520px;
     height: 132px;
-    left: 700px;
-    top: 802px;
+    left: 37%;
+    top: 85%;
 
     background: #FFFFFF;
     border: 5px solid #000000;

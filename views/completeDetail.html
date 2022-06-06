@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/style/workDetail.css" rel="stylesheet" type="text/css" />
+    <title>workModal</title>
+</head>
+<body>
+    <div id="infoFrame">
+        <div id="listFrame">
+            <div id = "from">FROM</div>
+            <div id = "fromtext"></div>
+            <div id ="to">TO</div>
+            <div id = "totext"></div>
+            <div id = "when">WHEN</div>
+            <div id = "whentext"></div>
+        </div>
+        <div id = "upperline"></div>
+        <div id = "distance">거리</div>
+        <div id = "distext"></div>
+        <div id = "goods">이사 규모</div>
+        <div id = "goodstext"></div>
+        <div id = "people">고용 인원</div>
+        <div id = "peopletext"></div>
+        <div id = "costtext">계산된 인건비는</div>
+        <div id = "cost"></div>
+        <div id = "lowerline"></div>
+        </div>
+        <button type = "button" id="completecancel" onClick = "goList()"><div id = "completetext" style="color: #C6C6C6;">돌아가기</div></button>
+    </div>
+</body>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=587871938dde7c8361b28506a0ddd1a9&libraries=services"></script>
+<script>
+    const data = localStorage.getItem("user-info");
+    const {_id,name,tel,curpos, movpos,day,goods,people,list} = JSON.parse(localStorage.getItem("user-info"));
+    localStorage.removeItem("user-info");
+    const cur = document.getElementById("fromtext");
+    cur.innerHTML = curpos;
+    const mov = document.getElementById("totext");
+    mov.innerHTML = movpos;
+    const when = document.getElementById("whentext");
+    const date = day.toString();
+    const year = date.substring(0,4);
+    const month = date.substring(5,7);
+    let hour = parseInt(date.substring(11,13))+9;
+    const minute = date.substring(14,16);
+    let days =parseInt(date.substring(8,10));
+        if (hour >= 24){
+            hour -= 24
+            hour = '0'+hour.toString();
+            if (days < 9){
+                days = '0'+(days+1).toString();
+            }
+            else{
+                days = (days+1).toString();
+            }
+        }
+    when.innerHTML = year + "."+month+"."+days + " "+hour + ':'+minute;
+    const good = document.getElementById("goodstext");
+    good.innerHTML = goods;
+    const peoplecount = document.getElementById("peopletext");
+    peoplecount.innerHTML = people+'명';
+    const geocoder = new kakao.maps.services.Geocoder();
+    const getPos = (curpos,movpos)=>{
+        var curlat = 0;
+        var curlng = 0;
+        var movlat = 0;
+        var movlng = 0;
+        geocoder.addressSearch(curpos,function(curresult,status){
+            if(status === kakao.maps.services.Status.OK){
+                curlat = curresult[0].y;
+                curlng = curresult[0].x;
+            }
+            geocoder.addressSearch(movpos,function(movresult,status){
+                if(status === kakao.maps.services.Status.OK){
+                    movlat = movresult[0].y;
+                    movlng = movresult[0].x;
+                }
+                const result = getDistance(curlat,curlng,movlat,movlng);
+                const dist = document.getElementById("distext");
+                dist.innerHTML = result+'m';
+                const cost = document.getElementById("cost");
+                cost.innerHTML = parseInt(result / 200) * 1000 + 3000+'원';
+            })
+        });
+    };
+    const radians = (degrees)=> {
+        return degrees * Math.PI / 180;
+    };
+    const getDistance = (curlat,curlng,movlat,movlng) =>{
+        const R = 6372.8 * 1000;
+        const dLat = radians(movlat - curlat);
+        const dLon = radians(movlng - curlng);
+        const a = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(radians(curlat)) * Math.cos(radians(movlat));
+        const c = 2 * Math.asin(Math.sqrt(a));
+        return parseInt(R * c);
+    }
+    getPos(curpos,movpos);
+    const goList = () =>{
+        location.href = "/views/completeList.html";
+    }
+</script>
+</html>

@@ -10,9 +10,9 @@
 </head>
 <body>
     <div id = "wrapper">
-        <div id = "title">일하기</div>
+        <div id = "title">매칭됨</div>
         <div id = "home" onClick = "goHome()">HOME</div>
-        <div id = "over" onclick="goOver()">매칭된 이사</div>
+        <div id = "over" onclick="goOver()">진행중인 이사</div>
         <div id = "contents"></div>
     </div>
 </body>
@@ -32,7 +32,7 @@
         const opt = ['from','to','when'];
         const opttext = ['fromtext','totext','whentext'];
         for(var i=0; i<data.length; i++){
-            if(data[i].people >0){
+            if(data[i].people ==0){
                 const name = i;
                 var temp = [data[i].curpos,data[i].movpos,data[i].day]
                 var newDiv1 = document.createElement("div");
@@ -87,13 +87,13 @@
     const goWork=(id)=>{
         const sendData = request.response[id];
         localStorage.setItem("user-info",JSON.stringify(sendData));
-        location.href = "./workDetail.html";
+        location.href = "./completeDetail.html";
     }
     const goHome=()=>{
         location.href = "/";
     }
     const goOver=()=>{
-        location.href = '/views/completeList.html';
+        location.href = '/views/worklist.html';
     }
 </script>
 </html>

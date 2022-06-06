@@ -340,9 +340,50 @@
     box-sizing: border-box;
     border-radius: 50px;
 }
+#completecancel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
+
+    position: absolute;
+    width: 300px;
+    height: 101px;
+    left: 1400px;
+    top: 780px;
+
+    background: #E5E5E5;
+    border: 5px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 50px;
+}
 #buttontext{
     position: static;
     width: 80px;
+    height: 58px;
+    left: 44px;
+    top: 21.5px;
+    
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 58px;
+    /* identical to box height */
+    
+    text-align: center;    
+    
+    /* Inside auto layout */
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+#completetext{
+    position: static;
+    width: 200px;
     height: 58px;
     left: 44px;
     top: 21.5px;
