@@ -87,13 +87,13 @@
     const goWork=(id)=>{
         const sendData = request.response[id];
         localStorage.setItem("user-info",JSON.stringify(sendData));
-        location.href = "./workDetail.html";
+        location.href = "/detail";
     }
     const goHome=()=>{
         location.href = "/";
     }
     const goOver=()=>{
-        location.href = '/views/completeList.html';
+        location.href = '/complete';
     }
 </script>
 </html>

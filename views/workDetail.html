@@ -109,7 +109,7 @@
     }
     getPos(curpos,movpos);
     const goList = () =>{
-        location.href = "/views/worklist.html";
+        location.href = "/worklists";
     }
     const goResult = () =>{
         const id = _id;
@@ -122,37 +122,32 @@
         const sending = new Object();
         sending.people = changePeople;
         const peopleList = new Object();
-        peopleList.name = document.getElementById('input_name').value;
-        peopleList.tel = document.getElementById('input_tel').value;
-        const request = new XMLHttpRequest();
-        request.onreadystatechange = function(){
-            if(request.status == 200){
+        const inputName = document.getElementById('input_name').value;
+        const inputTel = document.getElementById('input_tel').value;
+        if((inputName.length == 3 || inputName.length == 4) && inputTel.length == 11){
+            peopleList.name = inputName;
+            peopleList.tel = inputTel;
+            const request = new XMLHttpRequest();
+            request.onreadystatechange = function(){
+                if(request.status == 200){
                 console.log(request.responceText);
+                }
             }
+            const sendingJson = JSON.stringify(sending);
+            const peopleJson = JSON.stringify(peopleList);
+            request.open('PUT','/worklist/'+id,true);
+            request.setRequestHeader('Content-Type','application/json');
+            request.send(sendingJson);
+            request.open('POST','/worklist/'+id+'/peoples',true);
+            request.setRequestHeader('Content-Type','application/json');
+            request.send(peopleJson);
+            localStorage.setItem("user-info",JSON.stringify(userinfo))
+            location.href = "./detail/result";
         }
-        const sendingJson = JSON.stringify(sending);
-        const peopleJson = JSON.stringify(peopleList);
-        request.open('PUT','/worklist/'+id,true);
-        request.setRequestHeader('Content-Type','application/json');
-        request.send(sendingJson);
-        request.open('POST','/worklist/'+id+'/peoples',true);
-        request.setRequestHeader('Content-Type','application/json');
-        request.send(peopleJson);
-        // if(changePeople == 0){
-        //     request.open('DELETE','/worklist/'+id,true);
-        //     request.setRequestHeader('Content-Type','application/json');
-        //     request.send(sendingJson);
-        // }
-        // else{
-        //     request.open('PUT','/worklist/'+id,true);
-        //     request.setRequestHeader('Content-Type','application/json');
-        //     request.send(sendingJson);
-        //     request.open('POST','/worklist/'+id+'/peoples',true);
-        //     request.setRequestHeader('Content-Type','application/json');
-        //     request.send(peopleJson);
-        // }
-        localStorage.setItem("user-info",JSON.stringify(userinfo))
-        location.href = "./workResult.html";
+        else{
+            alert("잘못된 입력 형식 입니다.")
+            location.href = "/worklists"
+        }
     }
 </script>
 </html>

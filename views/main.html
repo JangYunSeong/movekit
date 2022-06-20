@@ -62,14 +62,14 @@
         document.getElementById('curpos').addEventListener("click",function(){
             new daum.Postcode({
                 oncomplete:function(data){
-                    document.getElementById("curpos").value = data.address; // 주소 넣기
+                    document.getElementById("curpos").value = data.address;
                 }
             }).open();
         });
         document.getElementById('movpos').addEventListener("click",function(){
             new daum.Postcode({
                 oncomplete:function(data){
-                    document.getElementById("movpos").value = data.address; // 주소 넣기
+                    document.getElementById("movpos").value = data.address;
                 }
             }).open();
         });
@@ -114,7 +114,7 @@
         document.querySelector('.black_bg').style.display ='none';
     }
     const goWork=()=>{
-        location.href="./views/worklist.html";
+        location.href="/worklists";
     }
 </script>
 </html>

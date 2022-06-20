@@ -1,23 +1,28 @@
 const express = require("express");
 const app = express();
+const nunjucks = require('nunjucks');
 const connect = require('./model/index');
-
+const mainRouter = require("./routes/mainRouter");
+const orderRouter = require('./routes/orderRouter');
+const listRouter = require('./routes/listRouter');
+const detailRouter = require("./routes/detailRouter");
+const completeRouter = require("./routes/completeRouter");
 const port = process.env.PORT || 5000;
+
+app.set('view engine', 'html');
+nunjucks.configure('views', {
+  autoescape:true,
+  express:app,
+  watch:true
+});
 
 app.use(express.json());
 app.use(express.static(__dirname));
-
-
-const orderRouter = require('./routes/orderRouter');
+app.use('/',mainRouter);
+app.use('/worklists', listRouter);
+app.use('/complete',completeRouter);
+app.use('/detail', detailRouter);
 app.use('/',orderRouter);
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/main.html");
-});
-
-app.get("/worklist", (req,res) => {
-    res.sendFile(__dirname + "/views/worklist.html");
-})
 
 connect();
 
