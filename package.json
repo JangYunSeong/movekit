@@ -5,10 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "node app.js"
   },
   "author": "yunsung",
   "license": "ISC",
+  "engines" : {
+    "node" : "17.0.1"
+  },
   "dependencies": {
     "axios": "^0.27.2",
     "cookie-parser": "^1.4.6",
