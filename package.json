@@ -9,22 +9,23 @@
   },
   "author": "yunsung",
   "license": "ISC",
-  "engines" : {
-    "node" : "17.0.1"
+  "engines": {
+    "node": "17.0.1"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
-    "express": "^4.18.0",
-    "express-session": "^1.17.2",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "moment": "^2.29.3",
-    "mongoose": "^6.3.3",
+    "mongoose": "^6.4.0",
     "morgan": "^1.10.0",
-    "node-geocoder": "^4.0.0",
-    "nodemon": "^2.0.15",
+    "node-geocoder": "^4.1.0",
+    "nodemon": "^2.0.16",
+    "npm-check-updates": "^14.0.1",
     "nunjucks": "^3.2.3"
   }
 }
