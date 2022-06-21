@@ -7,7 +7,8 @@ const orderRouter = require('./routes/orderRouter');
 const listRouter = require('./routes/listRouter');
 const detailRouter = require("./routes/detailRouter");
 const completeRouter = require("./routes/completeRouter");
-const port = process.env.PORT || 5000;
+const cors = require('cors');
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'html');
 nunjucks.configure('views', {
@@ -15,7 +16,7 @@ nunjucks.configure('views', {
   express:app,
   watch:true
 });
-
+app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 app.use('/',mainRouter);

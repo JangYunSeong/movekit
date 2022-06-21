@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="/style/workDetail.css" rel="stylesheet" type="text/css" />
-    <title>workModal</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png">
+    <title>MoveKit - 단거리 이사를 위한 플랫폼</title>
 </head>
 <body>
     <div id="infoFrame">
@@ -61,6 +62,17 @@
     const peoplecount = document.getElementById("peopletext");
     peoplecount.innerHTML = people+'명';
     const geocoder = new kakao.maps.services.Geocoder();
+    const radians = (degrees)=> {
+        return degrees * Math.PI / 180;
+    };
+    const getDistance = (curlat,curlng,movlat,movlng) =>{
+        const R = 6372.8 * 1000;
+        const dLat = radians(movlat - curlat);
+        const dLon = radians(movlng - curlng);
+        const a = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(radians(curlat)) * Math.cos(radians(movlat));
+        const c = 2 * Math.asin(Math.sqrt(a));
+        return parseInt(R * c);
+    }
     const getPos = (curpos,movpos)=>{
         var curlat = 0;
         var curlng = 0;
@@ -84,17 +96,6 @@
             })
         });
     };
-    const radians = (degrees)=> {
-        return degrees * Math.PI / 180;
-    };
-    const getDistance = (curlat,curlng,movlat,movlng) =>{
-        const R = 6372.8 * 1000;
-        const dLat = radians(movlat - curlat);
-        const dLon = radians(movlng - curlng);
-        const a = Math.pow(Math.sin(dLat / 2),2) + Math.pow(Math.sin(dLon / 2),2) * Math.cos(radians(curlat)) * Math.cos(radians(movlat));
-        const c = 2 * Math.asin(Math.sqrt(a));
-        return parseInt(R * c);
-    }
     getPos(curpos,movpos);
     const goList = () =>{
         location.href = "/complete";

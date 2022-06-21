@@ -6,7 +6,7 @@ const workSchema = new schema({
         type:String,
         trim:true,
         require:true,
-        minlength:3,
+        minlength:2,
     },
     tel : {
         type:String,
@@ -22,7 +22,7 @@ const orderSchema = new schema({
         type:String,
         require:true,
         trim:true,
-        minlength:3,
+        minlength:2,
     },
     tel :{
         type:String,

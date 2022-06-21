@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="/style/workDetail.css" rel="stylesheet" type="text/css" />
-    <title>workModal</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon.png">
+    <title>MoveKit - 단거리 이사를 위한 플랫폼</title>
 </head>
 <body>
     <div id="infoFrame">
@@ -124,7 +125,7 @@
         const peopleList = new Object();
         const inputName = document.getElementById('input_name').value;
         const inputTel = document.getElementById('input_tel').value;
-        if((inputName.length == 3 || inputName.length == 4) && inputTel.length == 11){
+        if((inputName.length == 2 || inputName.length == 3 || inputName.length == 4) && inputTel.length == 11){
             peopleList.name = inputName;
             peopleList.tel = inputTel;
             const request = new XMLHttpRequest();
