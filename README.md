@@ -60,3 +60,22 @@ move:.
         workResult.html
 ```
 ## 📋 프로젝트 상세 설명
+### 메인화면(/)
+![main](https://user-images.githubusercontent.com/46878756/174781407-0cbedaf6-2728-40c3-9c4e-dca500ca9c9b.png)
+### 신청 modal
+![modal](https://user-images.githubusercontent.com/46878756/174781543-284c555d-deaf-4774-a063-8f4a6174d92c.png)
+![kakaoAddress](https://user-images.githubusercontent.com/46878756/174781566-ca065384-577f-44a9-8a2d-38b2fca9f30c.png)
+### 리스트 화면(/worklists)
+![list](https://user-images.githubusercontent.com/46878756/174781638-50cf255c-dbdd-416c-99f0-17e5be312092.png)
+### 이사 신청 세부사항 화면(/detail)
+![detail](https://user-images.githubusercontent.com/46878756/174781691-e1d67db1-cdec-45cc-a8f1-f14f682413de.png)
+### 인력 신청 후 결과 화면(/detail/result)
+![result](https://user-images.githubusercontent.com/46878756/174781755-3421a777-2c50-4ce4-96c5-84ed12978a98.png)
+### 인력신청이 완료된 화면(/complete)
+![complete](https://user-images.githubusercontent.com/46878756/174781844-7ba47813-2476-4d9a-8bc6-cea040039794.png)
+### 완료된 이사항목 세부사항 화면(/complete/detail)
+![completeDetail](https://user-images.githubusercontent.com/46878756/174781867-0b85de4b-faf6-4651-9993-45326be2f90e.png)
+
+
+
+
